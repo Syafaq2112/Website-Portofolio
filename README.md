@@ -3,7 +3,7 @@
 Website portofolio pribadi yang dibangun untuk **Tugas K2 — Teknologi Platform (ITB)**.
 Situs statis (HTML, CSS, JavaScript) yang di-deploy otomatis menggunakan **CI/CD pipeline**.
 
-🔗 **Live:** _(akan diisi setelah deploy ke GitHub Pages)_
+🔗 **Live:** https://syafaq2112.github.io/portofolio-website/
 
 ## ✨ Fitur
 
@@ -31,19 +31,29 @@ python3 -m http.server 4321
 
 ## ⚙️ Deployment (CI/CD)
 
-Setiap `git push` ke branch `main` akan memicu workflow di
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) yang otomatis
-men-deploy ulang situs ke GitHub Pages. Inilah inti dari pipeline CI/CD:
-**perubahan kode → otomatis live**.
+Situs di-deploy ke **GitHub Pages** dengan sumber **branch `main`**. Setiap
+`git push` ke `main` otomatis memicu pipeline bawaan GitHub
+(`pages-build-deployment`, terlihat di tab **Actions**) yang membangun ulang dan
+mempublikasikan situs. Inilah inti CI/CD: **perubahan kode → otomatis live**,
+tanpa langkah manual.
+
+Alur demonstrasi:
+
+```bash
+# ubah sesuatu di index.html, lalu:
+git add .
+git commit -m "update konten"
+git push
+# tab Actions akan menjalankan pages-build-deployment,
+# beberapa saat kemudian situs live ikut berubah.
+```
 
 ## 📁 Struktur
 
 ```
 portofolio-website/
-├── index.html              # Halaman utama
-├── styles.css              # Seluruh styling
-├── script.js               # Interaktivitas
-├── README.md
-└── .github/workflows/
-    └── deploy.yml          # Pipeline deploy otomatis
+├── index.html      # Halaman utama
+├── styles.css      # Seluruh styling
+├── script.js       # Interaktivitas
+└── README.md
 ```
